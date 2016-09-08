@@ -11,6 +11,8 @@ Description:
  - draw graph to html file
  
 ### Usage:
- - python __main__.py run <.log file>
+   ```python
+   python __main__.py run <.log file>
+   ```
 
 Resulted file will be saved for the same directory as log file situated.
