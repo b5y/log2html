@@ -12,7 +12,7 @@ Description:
  
 ### Usage:
    ```python
-   python __main__.py run <.log file> off
+   python __main__.py run <.log file>
    ```
 
 Resulted file will be saved in the same directory as log file.
