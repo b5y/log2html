@@ -1,0 +1,14 @@
+language: python
+sudo: required
+dist: trusty
+python:
+  - "2.7.12"
+before_install:
+install:
+  - pip install -r requirements.txt
+  - pip install -e .
+script:
+  - py.test tests
+notifications:
+  email:
+    - mehty.musaev@gmail.com
