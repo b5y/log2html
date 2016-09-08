@@ -3,7 +3,7 @@ import pytest
 
 from log2graph.log2html import draw_graph, get_files, get_graph, read_log_file
 
-DIR_TEST_FILES = './test_samples'
+DIR_TEST_FILES = os.getcwd() + os.sep + 'tests' + os.sep + 'test_samples'
 
 
 @pytest.fixture()

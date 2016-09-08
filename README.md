@@ -15,4 +15,4 @@ Description:
    python __main__.py run <.log file>
    ```
 
-Resulted file will be saved for the same directory as log file situated.
+Resulted file will be saved in the same directory as log file.
