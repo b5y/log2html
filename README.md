@@ -6,11 +6,11 @@ Description:
 
 
 ### Project can do the following
-  -- read file or files from path
-  -- create graph data from list of numbers
-  -- draw graph to html file
+ - read file or files from path
+ - create graph data from list of numbers
+ - draw graph to html file
  
 ### Usage:
-  -- python __main__.py run <.log file>
+ - python __main__.py run <.log file>
 
 Resulted file will be saved for the same directory as log file situated.
