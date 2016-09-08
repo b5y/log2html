@@ -1,7 +1,11 @@
 import os
 import pytest
 
-from log2graph.log2html import draw_graph, get_files, get_graph, read_log_file
+from log2graph.log2html import (draw_graph,
+                                get_files,
+                                get_graph,
+                                read_log_file,
+                                rename_file_to_html)
 
 DIR_TEST_FILES = os.getcwd() + os.sep + 'tests' + os.sep + 'test_samples'
 
@@ -38,5 +42,5 @@ def test_get_graph(files):
 def test_draw_graph(files):
     file_ = DIR_TEST_FILES + os.sep + os.listdir(files)[0]
     assert os.path.isfile(file_) is True
-    draw_graph(file_, off=True)
-    assert os.path.isfile(file_[:-4] + '.html') is True
+    draw_graph(file_)
+    assert os.path.isfile(rename_file_to_html(file_)) is True

@@ -6,6 +6,13 @@ import numpy as np
 import plotly.plotly as py
 import plotly.graph_objs as go
 
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def rename_file_to_html(filename=basestring):
+    new_name = filename.replace(os.sep, '_')[:-4]
+    return ROOT_DIR + os.sep + new_name + '.html'
+
 
 def get_files(path=basestring):
     if not os.path.isdir(path):
@@ -42,19 +49,15 @@ def get_graph(val_loss=list):
     return trace
 
 
-def draw_graph(filename_or_folder=basestring, off=None, auto_open=False, sharing=basestring):
+def draw_graph(filename_or_folder=basestring, auto_open=None):
+    if auto_open:
+        auto_open = True
     if os.path.isfile(filename_or_folder):
         data = [get_graph(read_log_file(filename=filename_or_folder))]
-        if not off:
-            py.plot(data, filename=filename_or_folder[:-4], auto_open=auto_open, sharing=sharing)
-        else:
-            plotly.offline.plot(data, filename=filename_or_folder[:-4] + '.html', auto_open=auto_open)
+        plotly.offline.plot(data, filename=rename_file_to_html(filename_or_folder), auto_open=auto_open)
     elif os.path.isdir(filename_or_folder):
         for file_ in get_files(filename_or_folder):
             data = [get_graph(read_log_file(filename=file_))]
-            if not off:
-                py.plot(data, filename=file_[:-4], auto_open=auto_open, sharing=sharing)
-            else:
-                plotly.offline.plot(data, filename=file_[:-4] + '.html', auto_open=auto_open)
+            plotly.offline.plot(data, filename=rename_file_to_html(file_), auto_open=auto_open)
     else:
         raise IOError('Cannot get access to {0} object'.format(filename_or_folder))

@@ -24,16 +24,16 @@ def cli():
                 nargs=1,
                 type=click.Path(exists=True, resolve_path=True),
                 metavar="<path or file>")
-@click.argument('off', required=False, nargs=1)
+@click.argument('auto_open', required=False, nargs=1)
 @click.argument('plotly_login', required=False, nargs=1)
 @click.argument('api_key', required=False, nargs=1)
-def run(log_file_s=basestring, off=None, plotly_login=None, api_key=None):
+def run(log_file_s=basestring, auto_open=None, plotly_login=None, api_key=None):
     if not tls.get_credentials_file():
         print 'Please set your plotly login and api_key or give as additional arguments'
     if plotly_login and api_key:
         tls.set_credentials_file(plotly_login, api_key)
         logger.info('\nCredentials file is updated')
-    draw_graph(log_file_s, off, sharing='public')
+    draw_graph(log_file_s, auto_open=auto_open)
     logger.info('\nGraphs was drawn successfully\n')
 
 
