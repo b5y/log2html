@@ -12,7 +12,10 @@ Description:
  
 ### Usage:
    ```python
-   python __main__.py run <.log file>
+   python log2graph/__main__.py run <.log file>
    ```
 
 Resulted file will be saved in the same directory as log file.
+
+###Running tests:
+py.test tests
