@@ -7,8 +7,10 @@ before_install:
 install:
   - pip install -r requirements.txt
   - pip install -e .
+before_script:
+  - pwd
+  # - cd ..
 script:
-  - cd log2html
   - py.test tests
 notifications:
   email:
