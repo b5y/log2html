@@ -7,7 +7,7 @@ from log2graph.log2html import (draw_graph,
                                 read_log_file,
                                 rename_file_to_html)
 
-DIR_TEST_FILES = './tests/test_samples'
+DIR_TEST_FILES = os.getcwd() + os.sep + 'tests' + os.sep + 'test_samples'
 
 
 @pytest.fixture()
