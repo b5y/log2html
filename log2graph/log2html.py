@@ -15,6 +15,7 @@ def rename_file_to_html(filename=basestring):
 
 
 def get_files(path=basestring):
+    print path
     if not os.path.isdir(path):
         raise IOError('Object {0} is not a folder'.format(path))
     for dirpath, dirnames, filenames in os.walk(path):
